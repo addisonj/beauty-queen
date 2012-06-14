@@ -1,0 +1,23 @@
+{
+  "author": "Addison Higham <addisonj@gmail.com>",
+  "name": "beauty-queen",
+  "description": "A cli tool for beautifying your codes",
+  "version": "0.0.1",
+  "homepage": "http://github.com/addisonj/beauty-queen",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/addisonj/beauty-queen.git"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": "0.6.x"
+  },
+  "bin" : { "beauty-queen" : "./bin/beauty-queen" },
+  "dependencies": {
+    "beautifyjs" : "0.1.0",
+    "commander": "0.6.0",
+    "underscore": "1.3.3"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}

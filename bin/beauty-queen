@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var path = require("path")
+var fs = require("fs")
+var program = require("commander")
+var lib  = path.join(path.dirname(fs.realpathSync(__filename)), '../lib')
+var beauty_queen =  require(lib + "/beauty-queen")
+
+
+function getChar(type) {
+  if (!type) return " "
+  switch (type) {
+    case "space": return " "
+    case "tab": return "\t"
+  }
+}
+program
+  .version("0.0.1")
+  .option("-i, --indent [type]", "Indent character to use ('space' or 'tab')")
+  .option("-w, --width [num]", "the number of characters to use")
+  .command('*')
+  .description("the file")
+  .action(function(fileName) {
+    beauty_queen(fileName, {
+      indent_size: program.width || 2,
+      indent_char: getChar(program.indent)
+    })
+  })
+
+program.parse(process.argv)
+  
+
